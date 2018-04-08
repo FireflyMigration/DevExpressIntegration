@@ -13,7 +13,7 @@ namespace DevExpressIntegration
 {
     public class ScheduleDemo : UIControllerBase
     {
-
+        Views.RoomScheduleView _form;
 
         public ScheduleDemo()
         {
@@ -38,7 +38,8 @@ namespace DevExpressIntegration
 
         protected override void OnLoad()
         {
-            View = () => new  Views.RoomScheduleView(this);
+            _form = new Views.RoomScheduleView(this);
+            View = () => _form;
         }
 
         List<Appointment> _appointments = new List<Appointment>();
@@ -62,11 +63,10 @@ namespace DevExpressIntegration
             }
             
             var my = new DevExpressIntegration.MyAppointment();
-            var app = new Appointment(AppointmentType.Normal,
+            var app = _form.schedulerControl1.Storage.CreateAppointment(AppointmentType.Normal,
                         startTime.AddToDateTime(startDate.ToDateTime()),
                         endTime.AddToDateTime(endDate.ToDateTime())- startTime.AddToDateTime(startDate.ToDateTime()),
-                        subject.TrimEnd(),
-                        my);
+                        subject.TrimEnd()); //todo: send my
             my.SetApp(app);
             app.Description = description.TrimEnd();
             _appointments.Add(app);
@@ -80,7 +80,7 @@ namespace DevExpressIntegration
                 {
                     if (resourceCaption == null)
                         resourceCaption = resourceId.ToString().Trim();
-                    _resources.Add(new Resource(resourceId, resourceCaption.TrimEnd()));
+                    _resources.Add(_form.schedulerControl1.Storage.CreateResource(resourceId, resourceCaption.TrimEnd()));
                     _foundResources.Add(resourceId);
                 }
             }

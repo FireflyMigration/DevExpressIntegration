@@ -148,6 +148,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\RoomSchedule.View.resx">
       <DependentUpon>RoomSchedule.View.cs</DependentUpon>
     </EmbeddedResource>

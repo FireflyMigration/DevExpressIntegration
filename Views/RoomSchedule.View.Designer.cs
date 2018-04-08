@@ -538,7 +538,7 @@
         #endregion
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
+        internal DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
         private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraScheduler.UI.SwitchToDayViewItem switchToDayViewItem1;
