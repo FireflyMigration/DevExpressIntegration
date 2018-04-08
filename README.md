@@ -1,5 +1,5 @@
 # DevExpressIntegration
 This is a utility project that can help you to easily integrate DevExpress controls to your windows application.
-In order to build the project, a few files need to be added. Please see the references of the project for the missing dlls that need to be added:
-
-![Solution Explorer](2017-08-08_15h50_09.png)
+This project supports DevExpress version 17.2.
+In order to build the project, the DevExpress winform controls need to be installed.
+Please see the project references for the DevExpress controls location (the default location is C:\Program Files (x86)\DevExpress 17.2\Components\Bin\Framework)
