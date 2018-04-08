@@ -83,7 +83,7 @@
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.resourceCheckListBoxControl1 = new DevExpress.XtraScheduler.UI.ResourcesCheckedListBoxControl();
             this.dateNavigator1 = new DevExpress.XtraScheduler.DateNavigator();
-            this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController();
+            this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
@@ -91,18 +91,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourceCheckListBoxControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).BeginInit();
             this.SuspendLayout();
             // 
             // schedulerControl1
             // 
+            this.schedulerControl1.DataStorage = this.schedulerStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Location = new System.Drawing.Point(299, 142);
+            this.schedulerControl1.Location = new System.Drawing.Point(369, 141);
             this.schedulerControl1.MenuManager = this.ribbonControl1;
             this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(610, 308);
+            this.schedulerControl1.Size = new System.Drawing.Size(540, 309);
             this.schedulerControl1.Start = new System.DateTime(2015, 12, 29, 0, 0, 0, 0);
-            this.schedulerControl1.Storage = this.schedulerStorage1;
             this.schedulerControl1.TabIndex = 0;
             this.schedulerControl1.Text = "schedulerControl1";
             this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
@@ -163,7 +164,7 @@
             this.repositoryItemDuration1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(909, 142);
+            this.ribbonControl1.Size = new System.Drawing.Size(909, 141);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             // 
             // switchToDayViewItem1
@@ -396,6 +397,7 @@
             this.repositoryItemDuration1.AutoHeight = false;
             this.repositoryItemDuration1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDuration1.DisabledStateText = null;
             this.repositoryItemDuration1.Name = "repositoryItemDuration1";
             this.repositoryItemDuration1.NullValuePromptShowForEmptyValue = true;
             this.repositoryItemDuration1.ShowEmptyItem = true;
@@ -445,20 +447,22 @@
             // resourceCheckListBoxControl1
             // 
             this.resourceCheckListBoxControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.resourceCheckListBoxControl1.Location = new System.Drawing.Point(179, 142);
+            this.resourceCheckListBoxControl1.Location = new System.Drawing.Point(249, 141);
             this.resourceCheckListBoxControl1.Name = "resourceCheckListBoxControl1";
             this.resourceCheckListBoxControl1.SchedulerControl = this.schedulerControl1;
-            this.resourceCheckListBoxControl1.Size = new System.Drawing.Size(120, 308);
+            this.resourceCheckListBoxControl1.Size = new System.Drawing.Size(120, 309);
             this.resourceCheckListBoxControl1.TabIndex = 4;
             // 
             // dateNavigator1
             // 
+            this.dateNavigator1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNavigator1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dateNavigator1.HotDate = null;
-            this.dateNavigator1.Location = new System.Drawing.Point(0, 142);
+            this.dateNavigator1.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.dateNavigator1.Location = new System.Drawing.Point(0, 141);
             this.dateNavigator1.Name = "dateNavigator1";
             this.dateNavigator1.SchedulerControl = this.schedulerControl1;
-            this.dateNavigator1.Size = new System.Drawing.Size(179, 308);
+            this.dateNavigator1.Size = new System.Drawing.Size(249, 309);
             this.dateNavigator1.TabIndex = 2;
             // 
             // schedulerBarController1
@@ -506,7 +510,6 @@
             // 
             // RoomScheduleView
             // 
-            
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
@@ -528,6 +531,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourceCheckListBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).EndInit();
             this.ResumeLayout(false);

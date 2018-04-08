@@ -37,7 +37,6 @@ namespace DevExpressIntegration.Views
             schedulerControl1.AppointmentViewInfoCustomizing += SchedulerControl1_AppointmentViewInfoCustomizing;
             schedulerStorage1.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("AptColor", "AptColor"));
             Text = _controller.Text;
-            schedulerControl1.Start = _controller.StartDate.ToDateTime();
             RightToLeft = RightToLeft.No;
             schedulerControl1.AppointmentResized += SchedulerControl1_AppointmentResized;
             schedulerControl1.AppointmentDrop += SchedulerControl1_AppointmentDrop;

@@ -6,6 +6,7 @@ using Firefly.Box;
 using ENV;
 using ENV.Data;
 using DevExpress.XtraScheduler;
+using DevExpress.XtraScheduler.Compatibility;
 using Firefly.Box.Data.Advanced;
 
 
@@ -23,6 +24,7 @@ namespace DevExpressIntegration
                 e.Handled = !ENV.Common.ShowYesNoMessageBox("Close", "Exit?", false);
             };
             Text = "Scheduler";
+            _form = new Views.RoomScheduleView(this);
             StartDate = Date.Now;
         }
         public string SavedLayoutFile { get; set; }
@@ -38,7 +40,6 @@ namespace DevExpressIntegration
 
         protected override void OnLoad()
         {
-            _form = new Views.RoomScheduleView(this);
             View = () => _form;
         }
 
@@ -47,7 +48,13 @@ namespace DevExpressIntegration
         HashSet<object> _foundResources = new HashSet<object>();
 
         public string Text { get; set; }
-        public Date StartDate { get; set; }
+
+        public Date StartDate
+        {
+            get { return Date.FromDateTime(_form.schedulerControl1.Start); }
+            set { _form.schedulerControl1.Start = value.ToDateTime(); }
+        }
+
         public bool ShowAsGantt { get; set; }
 
         public MyAppointment AddAppointment(Date startDate, Time startTime, int duration, string subject, string description="", object resourceId=null, string resourceCaption=null)
@@ -63,10 +70,11 @@ namespace DevExpressIntegration
             }
             
             var my = new DevExpressIntegration.MyAppointment();
-            var app = _form.schedulerControl1.Storage.CreateAppointment(AppointmentType.Normal,
+            var app = StaticAppointmentFactory.CreateAppointment(AppointmentType.Normal,
                         startTime.AddToDateTime(startDate.ToDateTime()),
                         endTime.AddToDateTime(endDate.ToDateTime())- startTime.AddToDateTime(startDate.ToDateTime()),
-                        subject.TrimEnd()); //todo: send my
+                        subject.TrimEnd()); 
+            app.SetId(my);
             my.SetApp(app);
             app.Description = description.TrimEnd();
             _appointments.Add(app);
