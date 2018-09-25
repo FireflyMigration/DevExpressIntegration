@@ -149,6 +149,8 @@ namespace DevExpressIntegration.UI
                         fielda.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
                     else if (column == _task.DataColumn)
                         fielda.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+                    else
+                        fielda.Visible = l.Count < 15;
                     if (column.DataType == typeof(decimal) && !_countColumns.Contains(column))
                         fielda.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum;
                     else
