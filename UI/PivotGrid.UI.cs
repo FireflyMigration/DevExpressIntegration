@@ -83,7 +83,7 @@ namespace DevExpressIntegration.UI
         protected override void OnClosing(CancelEventArgs e)
         {
             if (!string.IsNullOrEmpty(SavedLayoutFile))
-                pivotGridControl1.SaveLayoutToXml(SavedLayoutFile);
+                pivotGridControl1.SaveLayoutToXml(Path.Combine(Application.UserAppDataPath, SavedLayoutFile));
         }
 
         DataSet GetDs()
@@ -194,9 +194,9 @@ namespace DevExpressIntegration.UI
 
                                                          };
 
-                if (File.Exists(SavedLayoutFile))
+                if (File.Exists(Path.Combine(Application.UserAppDataPath, SavedLayoutFile)))
                 {
-                    pivotGridControl1.RestoreLayoutFromXml(SavedLayoutFile);
+                    pivotGridControl1.RestoreLayoutFromXml(Path.Combine(Application.UserAppDataPath, SavedLayoutFile));
                     foreach (PivotGridField f in pivotGridControl1.Fields)
                     {
                         if (_task._sorters.ContainsKey(f.Name.Substring(3)))

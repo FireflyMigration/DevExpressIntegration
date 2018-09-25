@@ -116,9 +116,6 @@
     <Reference Include="DevExpress.XtraVerticalGrid.v14.1">
       <HintPath>DevExpressdlls\DevExpress.XtraVerticalGrid.v14.1.dll</HintPath>
     </Reference>
-    <Reference Include="ENV">
-      <HintPath>..\Lib\ENV.dll</HintPath>
-    </Reference>
     <Reference Include="Firefly.Box">
       <HintPath>..\Lib\Firefly.Box.dll</HintPath>
     </Reference>
@@ -160,6 +157,12 @@
       <DependentUpon>PivotGrid.UI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\fireflymigration\NorthwindUP\Dotnet\ENV\ENV.csProj">
+      <Project>{789912f6-af2f-434b-aa75-8a6257e23a5a}</Project>
+      <Name>ENV</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
